@@ -110,6 +110,23 @@ ___
 1. With a transient service a new instance is provided every time an instance is requested whetaher it is in the scope of the same http request or across different http request
 
 
+### About Data Annotation
+___
+1. Data Annotations
+1. Fluent API
+1. IValidatableObject
+1. ValidationAttribute
+
+
+### Repository Pattern
+___
+1. Repository pattern C# is a way to implement data access by encapsulating the set of objects persisted in a data store and the operations performed over them, providing a more object-oriented view of the persistence layer.
+1. 示意圖
+![image](./img/Repository.png)
+1. 優點
+    1. Increase testability
+    1. Easily swapped out with various data stores without changing the API
+
 # DotNet Core Identity
 
 ### Claim-Base Model (跟身分認證有關)

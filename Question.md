@@ -94,6 +94,30 @@ ___
     1. AddScoped
     1. AddTrasient
 
+### UseRouting & UseEndpoints
+___
+1. Middleware 放點一跟點二有什麼區別
+    ```c#
+    // 點一
+    app.UseRouting();
+    // 點二
+    app.UseEndpoints(endpoints => {
+        endpoints.MapDefaultControllerRoute();
+    });
+    ```
+
+### Data Validation
+___
+1. 關於 Data Validation 有什麼做法   
+
+
+<br>
+
+### Repository Pattern
+___
+
+![image](./img/Repository.png)
+
 
 <br>
 <br>
