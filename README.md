@@ -1,6 +1,6 @@
 # C# 語言
 
-### Defferred Execution 
+## Defferred Execution 
 ___
 1. The evaluation of an expression is delayed until its realized value is actually required.
 1. It is applicable on any in-memory collection as well as remote LINQ providers like LINQ-to-SQL, LINQ-to-Entities, LINQ-to-XML, etc.
@@ -41,6 +41,68 @@ ___
     // 第三個地方
     return collection.ToList();
     ```
+1. What is the differnet between IEnumerable & IQuerayable
+    - Query Data Frome DataBase 的方式
+        -  IEnumerable execute a select query on the server side, load data in-memory on a client-side and then filter data.
+            * 這使得 IEnumerable 比較適合拿來 Query 本地的資料
+        -  IQueryable execute the select query on the server side with all filters.
+            * 這使得 IQueryable 比較適合拿來 Query 遠程的資料
+    - Lazy Loading 
+        - IEnumerable dose not support lazy loading 
+        - IQuearyable support lazy loading
+
+
+## IEnumeartor and foreach
+___
+* Enumerator
+    - property **Current** 
+    - method **Reset**
+    - method **MoveNext**
+
+## Deffered Execution vs yield return
+___
+- Deffered Execution 會發生,是在實作 IEnumerator 時候使用 yield return
+- IEnumerator and IEnumerable declarations
+    ```c#
+    public interface IEnumerator  
+    {  
+        bool MoveNext();  
+        object Current  
+        {  
+            get;  
+        }  
+        void Reset();  
+    }  
+    public interface IEnumerable  
+    {  
+        IEnumerator GetEnumerator();  
+    }  
+    ```
+
+## LINQ 
+___
+- Where clause 背後原理
+    * 其實就是 IQueryable<T> or IEnumerable<T> 的 exetention method, 帶有一個 Func<T, bool> Delagate 當參數
+        - static IEnumerable<TSource> Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+- Select clause 背後原理
+    * 其實就是 IQueryable<T> or IEnumerable<T> 的 exetention method, 帶有一個 Func<TSource, TResult> Delagate 當參數
+        - static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> selector)
+
+
+## Lazy Loading
+___
+[有時間再回來看,這功能暫時沒有用到](https://www.youtube.com/watch?v=edrlZjAEseA)
+1. Lazy loading means delaying the loading of related data, until you specifically request for it.
+1. Far lazy loading Navigation property should be defined as public and virtual. Context class will not do lazy loading if property is not defined as virtual.
+1. lazy loading is default phenomenon
+1. When using POCO entity types, lazy loading is achieved by creating instance of dereived proxy types and then overriding virtual properties.
+
+
+### ExpandoObject
+___
+1. ExpandoObject vs dynaimc
+    1. dynamic只是編譯時期不做物件是否具有屬性的檢查，改在執行時期才處理，但卻不能動態增加屬性(因為接收的還是固定的那個物件)
+    1. 而ExpandoObject則可以動態的替物件增加或移除屬性，使用上彈性比較大
 
 
 ### GC Memory
