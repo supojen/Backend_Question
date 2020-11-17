@@ -4,7 +4,6 @@
 <br><br><br>
 
 ## 寫 API 時會大量使用 EntityFrameworkCore 與 Database 做溝通
-___
 
 1. Deffered Execution 是什麼意思?
     
@@ -24,7 +23,6 @@ ___
 <br><br><br>
 
 ## 實作 REST 時, 因為要完成 data shaping 的功能, Data Transfer Object 有時候必須動態生成
-___
 
 4. 請解釋 var & dynamic 的差異?
 
@@ -38,7 +36,6 @@ ___
 <br><br><br>
 
 ## 當處理檔案串流時, 記憶體管理變得十分重要
-___
 
 6. 通常在什麼情況下要使用 using statement?
 
@@ -52,8 +49,7 @@ ___
 
 <br><br><br>
 
-##　一些不關 c# 語言 但跟 DotNetCore Web Framework 有關的東西
-___
+## DotNetCore Web Framework
 
 8. DotNet Core Web App 裡面大量的使用到了 Dependency Injection，其中它提供了三種 method 做 dependency injection。分別是 AddSingleton, AddScoped & AddTrasient。請問用這三種方式注入 service 有什麼區別?
 
